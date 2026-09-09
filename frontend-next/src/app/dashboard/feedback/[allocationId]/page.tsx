@@ -8,19 +8,12 @@ import { apiFetch } from '@/lib/api';
 import { Button } from '@/components/ui/Button';
 import { Toast, ToastType } from '@/components/ui/Toast';
 import { cn } from '@/lib/utils';
+import { FEEDBACK_QUESTIONS } from '@/app/dashboard/feedbackQuestions';
 
-const QUESTION_LABELS = [
-    { key: 'q1', label: 'Subject Knowledge' },
-    { key: 'q6', label: 'Communication' },
-    { key: 'q2', label: 'Punctuality' },
-    { key: 'q7', label: 'Mentoring' },
-    { key: 'q3', label: 'Syllabus Coverage' },
-    { key: 'q8', label: 'Class Control' },
-    { key: 'q4', label: 'Doubt Clearing' },
-    { key: 'q9', label: 'Teaching Aids' },
-    { key: 'q5', label: 'Interaction' },
-    { key: 'q10', label: 'Overall Rating' },
-];
+const QUESTION_LABELS = FEEDBACK_QUESTIONS.map((q) => ({
+    key: q.key,
+    label: q.label,
+}));
 
 export default function FeedbackPage() {
     const router = useRouter();
